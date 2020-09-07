@@ -143,7 +143,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
+	
+	//open serial-port
+	c := &serial.Config{Name: "COM10", Baud: 9600}
+        s, err := serial.OpenPort(c)
+        if err != nil {
+                log.Fatal(err)
+        }
+	
+	
 	eventSimStartID := s.GetEventID()
 	//s.SubscribeToSystemEvent(eventSimStartID, "SimStart")
 	//s.SubscribeToFacilities(simconnect.FACILITY_LIST_TYPE_AIRPORT, s.GetDefineID(&simconnect.DataFacilityAirport{}))
@@ -278,6 +286,12 @@ func main() {
 						"master_ignition_switch":	fmt.Sprintf("%.1f", report.MasterIgnitionSwitch),
 											
 					})
+					
+					// serial
+					n, err := s.Write([]byte("test"))
+					if err != nil {
+						log.Fatal(err)
+					}
 
 				case s.DefineMap["TrafficReport"]:
 					trafficReport = (*TrafficReport)(ppData)
