@@ -148,9 +148,9 @@ func main() {
 	c := &serial.Config{Name: "COM10", Baud: 9600}
         s1, err := serial.OpenPort(c)
         if err != nil {
-                log.Fatal(err)
+                panic(err)
         }
-	
+	fmt.Println("serial connected to Arduino!")
 	
 	eventSimStartID := s.GetEventID()
 	//s.SubscribeToSystemEvent(eventSimStartID, "SimStart")
@@ -290,7 +290,7 @@ func main() {
 					// serial
 					n, err := s1.Write([]byte("test"))
 					if err != nil {
-						log.Fatal(err)
+						fmt.Println("err serialwrite-problem:", err)
 					}
 
 				case s.DefineMap["TrafficReport"]:
