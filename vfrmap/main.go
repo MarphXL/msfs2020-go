@@ -287,10 +287,10 @@ func main() {
 					})
 
 					// serial
-					n, err := s1.Write([]byte( fmt.Sprintf("%.0f", report.Airspeed) ))
-					n, err := s1.Write([]byte( 13 ))
-					n, err := s1.Write([]byte( fmt.Sprintf("%.0f", report.Altitude) ))
-					n, err := s1.Write([]byte( 13 ))
+					err = s1.Write([]byte( fmt.Sprintf("%.0f", report.Airspeed) ))
+					err = s1.Write([]byte( 13 ))
+					err = s1.Write([]byte( fmt.Sprintf("%.0f", report.Altitude) ))
+					err = s1.Write([]byte( 13 ))
 					if err != nil {
 						fmt.Println("err serialwrite-problem:", err)
 					}
