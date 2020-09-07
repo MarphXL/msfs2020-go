@@ -25,7 +25,7 @@ import (
 	// https://github.com/tarm/serial
 	"github.com/MarphXL/msfs2020-go/vfrmap/serial"
 )
-
+// Marph was here
 type Report struct {
 	simconnect.RecvSimobjectDataByType
 	Title         [256]byte `name:"TITLE"`
@@ -104,6 +104,7 @@ var disableTeleport bool
 
 var verbose bool
 var httpListen string
+// Marph Variables for serialwrite
 var n int
 
 func main() {
@@ -288,10 +289,11 @@ func main() {
 					})
 
 					// serial
-					n, err = s1.Write([]byte( fmt.Sprintf("%.0f", report.Airspeed) ))
-					n, err = s1.Write(13)
-					n, err = s1.Write([]byte( fmt.Sprintf("%.0f", report.Altitude) ))
-					n, err = s1.Write(13)
+					xtmp := []byte( fmt.Sprintf("%.0f\n\r", report.Altitude) )
+					fmt.Println( xtmp )
+					n, err = s1.Write([]byte( fmt.Sprintf("%.0f\n\r", report.Airspeed) ))
+					n, err = s1.Write(xtmp)
+					n, err = s1.Write([]byte( fmt.Sprintf("%.0f\n\r", report.Altitude) ))
 					if err != nil {
 						fmt.Println("err serialwrite-problem:", err)
 					}
