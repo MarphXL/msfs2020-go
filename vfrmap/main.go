@@ -144,7 +144,7 @@ func main() {
 	}
 	
 	//open serial-port
-	c := &serial.Config{Name: "COM10", Baud: 9600}
+	c := &serial.Config{Name: "COM31", Baud: 9600}
         s1, err := serial.OpenPort(c)
         if err != nil {
                 panic(err)
