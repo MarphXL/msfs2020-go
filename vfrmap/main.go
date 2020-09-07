@@ -146,7 +146,7 @@ func main() {
 	
 	//open serial-port
 	c := &serial.Config{Name: "COM10", Baud: 9600}
-        s, err := serial.OpenPort(c)
+        s1, err := serial.OpenPort(c)
         if err != nil {
                 log.Fatal(err)
         }
@@ -288,7 +288,7 @@ func main() {
 					})
 					
 					// serial
-					n, err := s.Write([]byte("test"))
+					n, err := s1.Write([]byte("test"))
 					if err != nil {
 						log.Fatal(err)
 					}
