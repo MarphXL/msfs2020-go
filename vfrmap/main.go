@@ -16,16 +16,16 @@ import (
 	"syscall"
 	"time"
 	"unsafe"
-	
+
 	// https://github.com/lian/msfs2020-go
 	"github.com/MarphXL/msfs2020-go/simconnect"
 	"github.com/MarphXL/msfs2020-go/vfrmap/html/leafletjs"
 	"github.com/MarphXL/msfs2020-go/vfrmap/websockets"
-	
+
 	// https://github.com/tarm/serial
 	"github.com/MarphXL/msfs2020-go/vfrmap/serial"
 )
-
+// Marph was here
 type Report struct {
 	simconnect.RecvSimobjectDataByType
 	Title         [256]byte `name:"TITLE"`
@@ -42,7 +42,7 @@ type Report struct {
 	// neu
 	FuelQuantity          float64   `name:"FUEL TOTAL QUANTITY" unit:"gallons"`
 	FuelCapacity          float64   `name:"FUEL TOTAL CAPACITY" unit:"gallons"`
-	MasterIgnitionSwitch          float64   `name:"MASTER IGNITION SWITCH" unit:"on/off"`	
+	MasterIgnitionSwitch          float64   `name:"MASTER IGNITION SWITCH" unit:"on/off"`
 }
 
 func (r *Report) RequestData(s *simconnect.SimConnect) {
@@ -142,7 +142,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	//open serial-port
 	c := &serial.Config{Name: "COM31", Baud: 9600}
         s1, err := serial.OpenPort(c)
@@ -150,7 +150,7 @@ func main() {
                 panic(err)
         }
 	fmt.Println("serial connected to Arduino!")
-	
+
 	eventSimStartID := s.GetEventID()
 	//s.SubscribeToSystemEvent(eventSimStartID, "SimStart")
 	//s.SubscribeToFacilities(simconnect.FACILITY_LIST_TYPE_AIRPORT, s.GetDefineID(&simconnect.DataFacilityAirport{}))
@@ -279,19 +279,19 @@ func main() {
 						"flaps":          fmt.Sprintf("%.0f", report.Flaps),
 						"trim":           fmt.Sprintf("%.1f", report.Trim),
 						"rudder_trim":    fmt.Sprintf("%.1f", report.RudderTrim),
-						
+
 						"fuel_total_quantity": 	fmt.Sprintf("%.1f", report.FuelQuantity),
 						"fuel_total_capacity":		fmt.Sprintf("%.1f", report.FuelCapacity),
 						"master_ignition_switch":	fmt.Sprintf("%.1f", report.MasterIgnitionSwitch),
-											
+
 					})
-					
+
 					// serial
 					n, err := s1.Write([]byte("test"))
 					if err != nil {
 						fmt.Println("err serialwrite-problem:", err)
 					}
-					
+
 					fmt.Println("n serialwrite:", n)
 
 				case s.DefineMap["TrafficReport"]:
