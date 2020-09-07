@@ -137,8 +137,8 @@
         hud.flaps.innerText = msg.flaps;
         hud.trim.innerText = msg.trim;
         hud.rudder_trim.innerText = msg.rudder_trim;
-	hud.fuel_quantity.innerText = msg.fuel_quantity;
-	hud.fuel_capacity.innerText = msg.fuel_capacity;
+	hud.fuel_total_quantity.innerText = msg.fuel_total_quantity;
+	hud.fuel_total_capacity.innerText = msg.fuel_total_capacity;
 	hud.master_ignition_switch.innerText = msg.master_ignition_switch;
       }
 
@@ -325,8 +325,8 @@
           vertical_speed: document.getElementById("vertical_speed_value"),
           flaps: document.getElementById("flaps_value"),
           trim: document.getElementById("trim_value"),
-	  fuel_capacity: document.getElementById("fuel_capacity_value"),
-	  fuel_quantity: document.getElementById("fuel_quantity_value"),
+	  fuel_total_capacity: document.getElementById("fuel_total_capacity_value"),
+	  fuel_total_quantity: document.getElementById("fuel_total_quantity_value"),
 	  master_ignition_switch: document.getElementById("master_ignition_switch_value"),
           rudder_trim: document.getElementById("rudder_trim_value"),
         };
@@ -344,8 +344,8 @@
         <span class="field">V.Speed: <span id="vertical_speed_value" class="value">0</span></span>
         <span class="field">Flaps: <span id="flaps_value" class="value">0</span></span>
         <span class="field">Trim: <span id="trim_value" class="value">0</span></span>
-        <span class="field">Fuel Quantity: <span id="fuel_quantity_value" class="value">0</span></span>
-        <span class="field">Fuel Capacity: <span id="fuel_capacity_value" class="value">0</span></span>
+        <span class="field">Fuel Quantity: <span id="fuel_total_quantity_value" class="value">0</span></span>
+        <span class="field">Fuel Capacity: <span id="fuel_total_capacity_value" class="value">0</span></span>
         <span class="field">Master: <span id="master_ignition_switch_value" class="value">0</span></span>
         <span class="field">R.Trim: <span id="rudder_trim_value" class="value">0</span></span>
     </div>
