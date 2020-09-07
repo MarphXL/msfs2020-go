@@ -25,6 +25,7 @@ import (
 	"github.com/MarphXL/msfs2020-go/simconnect"
 	"github.com/MarphXL/msfs2020-go/vfrmap/html/leafletjs"
 	"github.com/MarphXL/msfs2020-go/vfrmap/websockets"
+	"github.com/MarphXL/msfs2020-go/vfrmap/serial"
 )
 
 type Report struct {
