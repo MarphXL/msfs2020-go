@@ -291,6 +291,8 @@ func main() {
 					if err != nil {
 						fmt.Println("err serialwrite-problem:", err)
 					}
+					
+					fmt.Println("n serialwrite:", n)
 
 				case s.DefineMap["TrafficReport"]:
 					trafficReport = (*TrafficReport)(ppData)
