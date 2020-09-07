@@ -289,11 +289,15 @@ func main() {
 					})
 
 					// serial
-					xtmp := []byte( fmt.Sprintf("%.0f\n\r", report.Altitude) )
-					fmt.Println( xtmp )
-					n, err = s1.Write([]byte( fmt.Sprintf("%.0f\n\r", report.Airspeed) ))
-					n, err = s1.Write(xtmp)
-					n, err = s1.Write([]byte( fmt.Sprintf("%.0f\n\r", report.Altitude) ))
+					altitude_tmp := []byte( fmt.Sprintf("%.0f\t\n\r", report.Altitude) )
+					airspeed_tmp := []byte( fmt.Sprintf("%.0f\t\n\r", report.Airspeed) )
+					heading_tmp := []byte( fmt.Sprintf("%.0f\t\n\r", report.Heading) )
+					fmt.Println( heading_tmp )
+
+					n, err = s1.Write(altitude_tmp)
+					n, err = s1.Write(airspeed_tmp)
+					n, err = s1.Write(heading_tmp)
+
 					if err != nil {
 						fmt.Println("err serialwrite-problem:", err)
 					}
