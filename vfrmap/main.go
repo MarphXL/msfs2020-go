@@ -5,6 +5,7 @@ package main
 // build: GOOS=windows GOARCH=amd64 go build -o vfrmap.exe github.com/MarphXL/msfs2020-go/vfrmap
 
 import (
+	// https://github.com/lian/msfs2020-go
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -15,7 +16,12 @@ import (
 	"syscall"
 	"time"
 	"unsafe"
-
+	
+	// https://github.com/tarm/serial
+	"log"
+        "github.com/tarm/serial"
+	
+	// https://github.com/lian/msfs2020-go
 	"github.com/MarphXL/msfs2020-go/simconnect"
 	"github.com/MarphXL/msfs2020-go/vfrmap/html/leafletjs"
 	"github.com/MarphXL/msfs2020-go/vfrmap/websockets"
