@@ -17,14 +17,12 @@ import (
 	"time"
 	"unsafe"
 	
-	// https://github.com/tarm/serial
-	"log"
-        "github.com/tarm/serial"
-	
 	// https://github.com/lian/msfs2020-go
 	"github.com/MarphXL/msfs2020-go/simconnect"
 	"github.com/MarphXL/msfs2020-go/vfrmap/html/leafletjs"
 	"github.com/MarphXL/msfs2020-go/vfrmap/websockets"
+	
+	// https://github.com/tarm/serial
 	"github.com/MarphXL/msfs2020-go/vfrmap/serial"
 )
 
