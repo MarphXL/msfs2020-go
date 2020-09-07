@@ -1,4 +1,4 @@
-module github.com/lian/msfs2020-go
+module github.com/MarphXL/msfs2020-go
 
 go 1.14
 
