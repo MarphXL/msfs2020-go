@@ -289,10 +289,9 @@ func main() {
 					})
 
 					// serial
-					altitude_tmp := []byte( fmt.Sprintf("%.0f\t\n\r", report.Altitude) )
-					airspeed_tmp := []byte( fmt.Sprintf("%.0f\t\n\r", report.Airspeed) )
-					heading_tmp := []byte( fmt.Sprintf("%.0f\t\n\r", report.Heading) )
-					fmt.Println( heading_tmp )
+					altitude_tmp := []byte( fmt.Sprintf("%.0f\n", report.Altitude) )
+					airspeed_tmp := []byte( fmt.Sprintf("%.0f\n", report.Airspeed) )
+					heading_tmp := []byte( fmt.Sprintf("%.0ff\n", report.Heading) )
 
 					n, err = s1.Write(altitude_tmp)
 					n, err = s1.Write(airspeed_tmp)
