@@ -34,6 +34,10 @@ type Report struct {
 	Flaps         float64   `name:"TRAILING EDGE FLAPS LEFT ANGLE" unit:"degrees"`
 	Trim          float64   `name:"ELEVATOR TRIM PCT" unit:"percent"`
 	RudderTrim    float64   `name:"RUDDER TRIM PCT" unit:"percent"`
+	// neu
+	FuelQuantity          float64   `name:"FUEL TOTAL QUANTITY" unit:"gallons"`
+	FuelCapacity          float64   `name:"FUEL TOTAL CAPACITY" unit:"gallons"`
+	MasterIgnitionSwitch          float64   `name:"MASTER IGNITION SWITCH" unit:"on/off"`	
 }
 
 func (r *Report) RequestData(s *simconnect.SimConnect) {
