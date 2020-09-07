@@ -266,6 +266,11 @@ func main() {
 						"flaps":          fmt.Sprintf("%.0f", report.Flaps),
 						"trim":           fmt.Sprintf("%.1f", report.Trim),
 						"rudder_trim":    fmt.Sprintf("%.1f", report.RudderTrim),
+						
+						"fuel_total_quantity": 	fmt.Sprintf("%.1f", report.FuelQuantity),
+						"fuel_total_capacity":		fmt.Sprintf("%.1f", report.FuelCapacity),
+						"master_ignition_switch":	fmt.Sprintf("%.1f", report.MasterIgnitionSwitch),
+											
 					})
 
 				case s.DefineMap["TrafficReport"]:
